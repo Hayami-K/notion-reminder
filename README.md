@@ -1,6 +1,5 @@
-# notion-reminder
 
-# notion-reminder-bot
+# notion-reminder
 
 NotionデータベースのエントリーをモニタリングしてLINE通知を送信するボットです。  
 A bot that monitors Notion database entries and sends notifications via LINE.
