@@ -1,0 +1,32 @@
+name: Notion LINE Notification
+
+on:
+  schedule:
+    # 毎日午前9時（JST）に実行 (UTC 0時 = JST 9時)
+    - cron: '0 0 * * *'
+  # 手動実行用
+  workflow_dispatch:
+  
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run notification script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
+          NODE_ENV: production
+        run: node src/index.js
