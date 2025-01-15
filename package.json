@@ -1,0 +1,15 @@
+{
+    "name": "notion-line-notification",
+    "version": "1.0.0",
+    "description": "Notion database monitor with LINE notification",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "node src/index.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "@notionhq/client": "^2.2.14",
+      "axios": "^1.6.7",
+      "dotenv": "^16.4.1"
+    }
+  }
